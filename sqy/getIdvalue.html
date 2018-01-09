@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/jquery.1.12.4.min.js"></script>
+</head>
+<body>
+<span id="group">
+    <span id="0_1">aaa,
+             <span group_id="0_1" class="icon_close"> </span>
+    </span>
+    <span id="0_2">bbb,
+            <span group_id="0_2" class="icon_close"> </span>
+    </span>
+    <span id="0_3">ccc,
+             <span group_id="0_3" class="icon_close"> </span>
+    </span>
+    <span id="0_4">ddd,
+            <span group_id="0_4" class="icon_close"> </span>
+    </span>
+    <span id="0_5">eee,
+            <span group_id="0_5" class="icon_close"> </span>
+    </span>
+</span>
+<script>
+    $(document).ready(function(){
+        var len = $("#group span").size();//获取span标签的个数
+        var arr = [];
+        for(var index = 0; index < len-1; index++){//创建一个数字数组
+            arr[index] = index;
+        }
+        $.each(arr, function(i){//循环得到不同的id的值
+            var idValue = $("#group span").eq(i).attr("id");
+            if(idValue != ''){
+                alert(idValue);
+            }
+        });
+    });
+</script>
+</body>
+</html>

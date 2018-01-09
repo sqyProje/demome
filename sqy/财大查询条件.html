@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询条件</title>
+    <script src="../js/jquery.1.12.4.min.js"></script>
+    <link rel="stylesheet" href="">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            font-size:14px;
+            font-family: 'Microsoft yahei';
+        }
+        a{
+            text-decoration: none;
+            display: inline-block;
+            color:#333;
+        }
+        span{
+            display: inline-block;
+        }
+        li{
+            list-style: none;
+        }
+        .clearfix{
+            clear: both;
+            content: '123';
+            overflow: hidden;
+            display: block;
+        }
+        .cxcontainer{
+            padding:20px;
+        }
+        .searchText input{
+            width:120px;
+            height:24px;
+        }
+        .allselect{
+            margin-top:10px;
+        }
+        .allselect .curtj {
+            float:left;
+        }
+        .allselect ul{
+            float:left;
+        }
+        .allselect ul li{
+            margin: 0 6px;
+            height:24px;
+            line-height:24px;
+            padding:0 8px;
+            float:left;
+        }
+        .allselect  .searList li a {
+            margin: 0 3px;
+            color: #ffffff;
+        }
+        .allselect  .searList li span{
+            font-size: 10px;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        .allselect  .searList li{
+            background:#3ab4ff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .searchMany{
+            border:1px solid #E0E0E0;
+            border-top:none;
+        }
+        .item{
+            border-top: 1px solid #E0E0E0;
+            min-height:30px;
+        }
+        .moreinfo{
+            float: right;
+            margin-right: 20px;
+            vertical-align: top;
+            color: #1980c5;
+            line-height: 30px;
+        }
+        .searchMany .seachName{
+            width:100px;
+            text-align:right;
+            line-height: 30px;
+        }
+        .item ul{
+            border-left: 1px solid #E0E0E0;
+            width:88%;
+        }
+        .item ul li{
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        .item ul li.active{
+            background: #3ab4ff;
+            color: #fff;
+            border-radius: 5px;
+        }
+        .item ul li.active a{
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div  class="cxcontainer">
+    <div class="searchText"><span>学号：</span><input type="text" placeholder="请输入学号"> <span>查询</span></div>
+    <div class="allselect clearfix">
+        <span class="curtj">当前查询：</span>
+        <ul class="searList">
+            <li><a href="#">计算机学院</a><span>X</span></li>
+        </ul>
+
+    </div>
+    <div class="searchMany allselect">
+        <div id="itemOne" class="item oneselect clearfix">
+            <span class="curtj seachName">学院：</span>
+            <ul>
+                <li class="" onclick="clickXy(this)"><a href="#" name="college_name" >计算机学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">会计学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">土木工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">资源管理学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">信息工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">电气信息工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">计算机学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">会计学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">土木工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">资源管理学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">信息工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">电气信息工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">计算机学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">会计学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">土木工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">资源管理学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">信息工程学院</a></li>
+                <li onclick="clickXy(this)"><a href="#" name="college_name">电气信息工程学院</a></li>
+            </ul>
+            <span class="moreinfo">更多>></span>
+        </div>
+        <div class="item oneselect clearfix">
+            <span class="curtj seachName">年级：</span>
+            <ul>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+                <li onclick="clickNj(this)"><a href="#">1314</a></li>
+            </ul>
+            <span class="moreinfo">更多>></span>
+        </div>
+        <div class="item oneselect clearfix">
+            <span class="curtj seachName">专业：</span>
+            <ul>
+                <li onclick="clickZy(this)"><a href="#">计算机信息管理</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">资源管理学院</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">电气信息工程学院</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学院</a></li>
+                <li  onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">电气信息工程学院</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+                <li onclick="clickZy(this)"><a href="#">信息工程学院</a></li>
+                <li onclick="clickZy(this)"><a href="#">会计学（ACCA方向）</a></li>
+            </ul>
+            <span class="moreinfo">更多>></span>
+        </div>
+        <div class="item oneselect clearfix">
+            <span class="curtj seachName">班级：</span>
+            <ul >
+                <li onclick="clickBj(this)"><a href="#">131401</a></li>
+                <li onclick="clickBj(this)"><a href="#">131402</a></li>
+                <li onclick="clickBj(this)"><a href="#">131403</a></li>
+                <li onclick="clickBj(this)"><a href="#">131404</a></li>
+                <li onclick="clickBj(this)"><a href="#">131405</a></li>
+                <li onclick="clickBj(this)"><a href="#">131406</a></li>
+                <li onclick="clickBj(this)"><a href="#">131407</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314080</a></li>
+                <li onclick="clickBj(this)"><a href="#">131406</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314001</a></li>
+                <li onclick="clickBj(this)"><a href="#">131455</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314454</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+                <li onclick="clickBj(this)"><a href="#">1314</a></li>
+            </ul>
+            <span class="moreinfo">更多>></span>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    //点击学院
+    function clickXy(obj){
+
+        var className = obj.className;
+
+        if(className == "active"){
+            obj.className = "";
+        }else{
+            obj.className = "active";
+        }
+    }
+    //点击年级
+    function clickNj(obj){
+        var className = obj.className;
+
+        if(className == "active"){
+            obj.className = "";
+        }else{
+            obj.className = "active";
+        }
+    }
+    //点击专业
+    function clickZy(obj){
+        var className = obj.className;
+
+        if(className == "active"){
+            obj.className = "";
+        }else{
+            obj.className = "active";
+        }
+    }
+    //点击专业
+    function clickBj(obj){
+        var className = obj.className;
+
+        if(className == "active"){
+            obj.className = "";
+        }else{
+            obj.className = "active";
+        }
+    }
+
+    //获取选中条件
+    function getSelectLi(obj){
+        var className=obj.className;
+        var str=''
+        var ulCont=$(".searList").html();
+        if(className='active'){
+            str+='<li><a href="#">计算机学院</a><span>X</span></li>';
+        }
+
+    }
+</script>
+</body>
+</html>

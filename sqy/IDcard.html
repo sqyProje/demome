@@ -1,0 +1,118 @@
+<HTML>
+
+<HEAD>
+
+    <TITLE>SIDReader.OCX Sample---JavaScript</TITLE>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <SCRIPT LANGUAGE="JavaScript">
+        //加载核心
+        function LoadRecogKenal()
+        {
+            document.IDScanRecog.result.innerText = "";
+            if(!objIDCard.IsLoaded())
+            {
+                //var strDllPath = "";
+                var nRet = objIDCard.Init();
+
+                document.IDScanRecog.result.innerText = "";
+                if(nRet==0x90)
+                {
+                    document.IDScanRecog.result.innerText = "二代证核心加载成功";
+                }
+                else
+                {
+                    document.IDScanRecog.result.innerText = "二代证核心加载失败\r\n返回值：";
+
+                    document.IDScanRecog.result.innerText += nRet;
+                }
+            }
+            else
+            {
+                document.IDScanRecog.result.innerText = "核心已经加载";
+            }
+
+        }
+        //释放核心
+        function FreeRecogKenal()
+        {
+            objIDCard.Free();
+            document.IDScanRecog.result.innerText = "";
+        }
+        //识别
+        function RecognizeImg()
+        {
+
+            var strResult = "";
+            if(objIDCard.IsLoaded)  //判断识别核心是否已加载。 成功1 ，失败0
+            {
+                if (!objIDCard.IsCardRead())
+                {
+                    var nRet = objIDCard.Read(document.IDScanRecog.ImgPath.value);
+
+                    if(nRet==0x90)
+                    {
+                        strResult = "姓名：";
+                        strResult+=objIDCard.GetName();
+                        strResult+="\r\n"
+                        strResult+=	"性别：";
+                        strResult+=objIDCard.GetSex();
+                        strResult+="\r\n"
+                        strResult+=	"民族：";
+                        strResult+=objIDCard.GetPeople();
+                        strResult+="\r\n"
+                        strResult+=	"出生：";
+                        strResult+=objIDCard.GetBirthDay();
+                        strResult+="\r\n"
+                        strResult+=	"地址：";
+                        strResult+=objIDCard.GetAddress();
+                        strResult+="\r\n"
+                        strResult+=	"身份证号：";
+                        strResult+=objIDCard.GetIDCode();
+                        strResult+="\r\n"
+                        strResult+=	"签发机关：";
+                        strResult+=objIDCard.GetAuthority();
+                        strResult+="\r\n"
+                        strResult+=	"签发日期：";
+                        strResult+=objIDCard.GetIssueDay();
+                        strResult+="\r\n"
+                        strResult+=	"有效日期";
+                        strResult+=objIDCard.GetExpityDay();
+                    }
+                    else
+                    {
+                        strResult="识别失败!\r\n返回值：";
+                        strResult+=nRet;
+                    }
+
+                }
+                else
+                {
+                    strResult="此卡已读取过！请放下一张...";
+                }
+            }
+            else
+                strResult="核心未加载，请加载核心...";
+
+            document.IDScanRecog.result.innerText=strResult;
+        }
+
+    </SCRIPT>
+
+</HEAD>
+
+<BODY>
+
+<OBJECT classid="clsid:2DEFFB1F-4F4C-41B6-930A-63BE16732D61" id="objIDCard" width="0" height="0"></OBJECT>
+
+<FORM NAME="IDScanRecog">
+    <INPUT type="button" name="BtnLoadKenal" value="加载二代证核心" size="20" onClick=LoadRecogKenal()>
+    <INPUT type="button" name="BtnFreeKenal" value="释放二代证核心" size="20" onClick=FreeRecogKenal()></p>
+    设置图像保存路径：&nbsp;&nbsp;<INPUT type="text" name="ImgPath" value="c:\\test.bmp" size="50"></p>
+    <INPUT type="button" name="BtnRecog" value="读卡" size="10" onClick=RecognizeImg()>
+    <textarea name="result" cols="55" rows="15" ></textarea>
+
+</FORM>
+
+</BODY>
+
+</HTML>

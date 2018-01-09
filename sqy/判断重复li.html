@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jQuery UI Example Page</title>
+    <script type="text/javascript" src="../js/jquery.1.12.4.min.js"></script>
+    <script>
+        $(function() {
+            $("#mainUl").children("li").click(function() {
+                var clone = $(this).clone();
+                clone.append("<span style=*color:red;font-weight: bold;cursor:pointer*> X</span>")
+                    .find("span").click(function () {
+                    $(this).parent().remove("li");
+                });
+                var num = $("#showUl").children("li").length;
+                if (num<=2) {
+                    $("#showUl").append(clone);
+                }else if(num == 3){
+                    alert("够了 够了 够多了");
+                }else{
+                    alert("出错了");
+                };
+            });
+        });
+    </script>
+<body>
+<div style="float: left">
+    <ul id="showUl">
+    </ul>
+</div>
+<div style="float: left">
+    <ul id="mainUl">
+        <li>认真</li>
+        <li>吃货</li>
+        <li>生活哲学家</li>
+        <li>大笑</li>
+        <li>戒指</li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,127 @@
+@big-size:20px;
+@width:0.5;
+@height:24px;
+@active_active:#2294ff;
+//设置变量
+@set_class:color;
+//变量嵌套
+@nhtml:'我是前端开发工程师';
+@content:@nhtml;
+//边框进行样式 进行传参数也可设置默认参数写成 @dewidth:10px;
+//相当于一个变量函数进行引用
+.default_border(@type,@color,@dewidth){
+  border-style: @type;
+  border-color:@color;
+  border-width: @dewidth;
+}
+
+//圆角
+.boder_radius(@radius,@opacity,@bg){
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  boder-radius:@radius;
+  opacity: @opacity/100;
+  -moz-opacity: @opacity/100;
+  -webkit-opacity:@opacity/100;
+  -khtml-opacity:@opacity/100;
+  background:@bg;
+  filter:alpha(opacity=@opacity);
+  -ms-filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity);
+  /*IE4-IE9*/
+  filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=@opacity);
+}
+
+//三角形的样式
+.triangle(bottom,@wh:10px,@color:#333){
+    border-width:@wh;
+    border-color: @color transparent  transparent transparent;
+    border-style: solid solid dashed solid;
+}
+.triangle(top,@wh:10px,@color:#333){
+  border-width:@wh;
+  border-color: transparent  transparent @color transparent;
+  border-style:solid solid dashed solid;
+}
+.triangle(left,@wh:10px,@color:#333){
+  border-width:@wh;
+  border-color: transparent @color  transparent transparent ;
+  border-style: solid solid dashed solid;
+}
+.triangle(right,@wh:10px,@color:#333){
+  border-width:@wh;
+  border-color: transparent  transparent transparent @color ;
+  border-style: solid solid dashed solid;
+}
+//固定写法
+.triangle(@_,@wh:5px,@color:#333){
+  width:0;
+  height:0;
+  overflow:hidden;
+}
+
+*{
+  margin:0;
+  padding:0;
+
+}
+//清楚缓存，less中引用写好的类名的方式 .clearboth();
+.clearboth{
+  content: @content;
+  height:0;
+  display:block;
+  clear:both;
+  overflow:hidden;
+}
+a {
+  text-decoration: none;
+}
+li{
+  list-style:none;
+}
+body{
+  font-size: @big-size;
+  color:#000;
+}
+.bodybg{
+  position:relative;
+}
+.bgopacity{
+  width:100%;
+  height:40px;
+  .boder_radius(3px,20,#000)
+}
+div{
+//可以当作类型引用 或者当作属性名字进行引用
+  position:absolute;
+  width:100%;
+  height:30px;
+  .@{set_class}{
+    width:percentage(@width);
+    margin: 0 auto;
+   .default_border(solid,#222222,5px);
+    height:30px;
+   // .boder_radius(5px,50,#ccc);
+  li{
+      font-size: @big-size;
+      line-height: @height;
+      list-style:none;
+      float:left;
+      padding:0 15px;
+      height: @height;
+   a{
+        @{set_class}:#ff0000;
+     //&代表他的上一级
+       &:hover{
+         color:#2294ff;
+      }
+    }
+
+
+    }
+  }
+}
+
+//三角
+.sj {
+  .triangle(right,100px);
+}

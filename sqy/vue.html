@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+    <style>
+        .hClass h1{
+            font-size:16px;
+            color:#0B8DE5;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-bind:id="'list_'+id">
+    {{ok?'yes':'no'}}<br>
+    <div v-html="message" v-bind:class="{'hClass':hClass}"  ></div>
+    <a v-bind:href="url">点击跳转</a>
+</div>
+<script>
+    new Vue({
+        el:"#app",
+        data:{
+            message:'<h1>v-html用于输出html代码</h1>',
+            id:1,
+            hClass:true,
+            url: 'http://www.runoob.com',
+            ok:true,
+        }
+
+    });
+</script>
+</body>
+</html>
